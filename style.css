@@ -1,0 +1,49 @@
+html, body { margin: 0; height: 100%; overflow: hidden; }
+
+/* солнце, небо и дорога */
+html {
+  background:
+    radial-gradient(circle 40px at 80% 20%, #ffd93b 98%, transparent),
+    linear-gradient(#bfe9ff 75%, #555 75%);
+}
+
+.car {
+  position: absolute;
+  left: -200px;
+  bottom: calc(25% + 10px);
+  width: 200px;
+  height: 40px;
+  background: red;
+  border-radius: 10px;
+  animation: drive 4s forwards;
+}
+
+/* кабина */
+.car::before {
+  content: "";
+  position: absolute;
+  left: 40px;
+  top: -30px;
+  width: 100px;
+  height: 30px;
+  background: red;
+  border-radius: 15px 15px 0 0;
+}
+
+/* два колеса: второе — тенью первого */
+.car::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  width: 30px;
+  height: 30px;
+  background: #222;
+  border-radius: 50%;
+  box-shadow: 120px 0 #222;
+}
+
+/* выезд слева и остановка за 50px до правого края */
+@keyframes drive {
+  to { left: calc(100% - 250px); }
+}
